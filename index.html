@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flappie Bird</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Arianne Macena">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link rel="icon" href="icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="flappy.css">
+</head>
+
+<body class="content">
+    <pre id="status" style="display: none;">LOADING...</pre>
+    <div anz-flappy-area> 
+        <div anz-wrap>
+            <div id="score">
+                <h5>Best score</h5>
+                <h3 id="best">0</h3>
+                <h4>Score</h4>
+                <h2 id="actual">0</h2>
+            </div>
+            <button id="start">START</button>
+        </div>   	
+    	<div anz-flappy class="paused">    		
+    	</div>
+    </div>
+    <script src="flappy.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('Pixel.ttf');
+}
+@font-face {
+    font-family: 'Retro';
+    src: url('Retro.ttf');
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: #0D262D;
+    font-family: 'Pixel';
+    color: #fff;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+[anz-flappy-area] {
+    position: relative;
+    height: 100%;
+    max-height: 600px;
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 10px;
+}
+
+[anz-flappy] {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: deepskyblue;
+    background-size: contain;
+    background-position: center;
+     -webkit-animation: background-move 7000ms linear infinite;
+     -moz-animation: background-move 7000ms linear infinite;
+       -o-animation: background-move 7000ms linear infinite;
+    animation: background-move 7000ms linear infinite;
+}
+
+@-webkit-keyframes background-move {
+  0% {
+    background-position-x: 0 0;
+  }
+  100% {
+    background-position-x: -630px;
+  }
+}
+
+@keyframes background-move {
+  0% {
+    background-position-x: 0 0;
+  }
+  100% {
+    background-position-x: -630px;
+  }
+}
+
+
+[anz-flappy].paused {
+    opacity: .5;
+    animation: none;
+}
+
+
+.content [anz-flappy-area] div#score,
+.content [anz-flappy-area] button#start {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.content [anz-flappy-area] button#start {
+    font-family: Pixel;
+    padding: 10px 20px;
+    font-size: 2rem;
+    color: #fff;
+    background: #e56400;
+    border: 2px solid #5c4600;
+    border-bottom: 4px solid #542801;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px white inset;
+    top: 50%;
+}
+
+.content [anz-flappy-area] div#score {
+    top: 25%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Retro";
+}
+
+.content [anz-flappy-area] * {
+    margin: 0;
+}
+
+.content [anz-flappy-area] div#score h2 {
+    font-size: 2.5em;
+}
+
+.content [anz-flappy-area] div#score h3 {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+}
+
+.content [anz-flappy-area] div#score h4 {
+    font-size: 1.5em;
+}
+
+.bird {
+    position: absolute;
+    width: 60px;
+    left: calc(50% - 30px);
+    bottom: 50%;
+}
+
+.barrier-pairs {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barrier {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barrier .border {
+    height: 30px;
+    width: 130px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border: 2px solid #000;
+}
+
+.barrier .body {
+    height: 150px;
+    width: 110px;
+    background: linear-gradient(90deg, #639301, #A5E82E);
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 70px;
+    z-index: 100;
+}
+
+#status {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 11px;
+  background: lightgray;
+  margin: 0;
+  padding: 5px;
+  z-index: 100;
+  color: #000;
+}
+
+@media (max-width: 900px), (orientation: portrait) {
+    .barrier .border {
+        width: 100px;
+    }
+    .barrier .body {
+        width: 80px;
+    }
+    .bird {
+        width: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    [anz-flappy-area] {
+        height: 90%;
+        max-height: 450px;
+        width: 95%;
+    }
+    .barrier .border {
+        width: 80px;
+    }
+    .barrier .body {
+        width: 60px;
+    }
+    #status {
+        display: none;
+    }
+    .content [anz-flappy-area] button#start {
+        top: 60%;
+    }
+}
